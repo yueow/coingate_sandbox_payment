@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Status</th>
+            <th>Price</th>
+            <th>Receive</th>
+            <th>URL</th>
+            <th>Created</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for payment in payment_list %}
+        <tr>
+            <td>{{ payment.payment_id }}</td>
+            <td>{{ payment.get_status_display }}</td>
+            <td>{{ payment.price_amount }} {{ payment.price_currency }}</td>
+            <td>{{ payment.receive_amount }} {{ payment.receive_currency }}</td>
+            <td><a href="{{ payment.payment_url }}">Payment URL</a></td>
+            <td>{{ payment.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
